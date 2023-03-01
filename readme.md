@@ -1,3 +1,5 @@
+This Git Repo will show how to apply Helm Sub-Charts/Umbrella Charts in ACM.  The appsub model and ArgoCD (applicationset) way will be shown.
+
 In this exercise, we will download the mysql helm chart from helm.sh
 
 First, we will look at default settings that get applied based on contents of tgz
