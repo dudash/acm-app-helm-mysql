@@ -49,5 +49,28 @@ dependencies:
 
 values.yaml
 
+mysql:
+  resources:
+    requests:
+      memory: 128Mi
+      cpu: 100m
+      
+7.  In ACM, go to In ACM GUI, Applications --> Create Application --> ApplicationSet
+    Name: helm-mysql
+    Argo-Server: openshift-gitops
+    Source: GitRepo
+    URL: https://github.com/kcalliga/helm-mysql
+    Revision: main
+    Path: mysql
+    Remote Namespace: helm-mysql
+    Accept defaults on next screen
+
+    Lastly, create a placement if one does not already exist to push to local-cluster (New Placement --> Openshift ClusterSet --> Label local-cluster: true)
+    
+8.  Wait for ACM Topology View to update and now go to Openshift Gitops/ArgoCD dashboard (https://openshift-gitops-server-openshift-gitops.apps.<clustername>.<basedomain>
+    
+9.  Look at the way objects are visualized here.
+
+
 
 
