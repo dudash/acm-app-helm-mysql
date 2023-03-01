@@ -37,7 +37,15 @@ The resulting YAML definition of this operation is contained in the yaml directo
 3.  Look at the topology view in ACM.  Take note of how you would view status and YAML definitions of the objects that are created.
 4.  Once we are finished, let's remove this application and any sub-objects
 5.  Now, we will create the application using an applicationset and changing the request memory from 256Mi (default) to 128Mi.  The 2 files that are created to do this are called a sub-chart or umbrella chart.  In contrast to the application deployment that we did earlier (based on Helm), this one will be a Git repo.  There are 2 files in this Git Repo (contained in the mysql subdirectory) called Chart.yaml and values.yaml.  The Chart.yaml defines the Helm repo, the chart, and the version of the chart as a dependency.  The values.yaml will have only settings that differ from the parent values.yaml (contained within the tgz file).
-6.  Take note of the bottom of the Chart.yaml file and the values.yaml
+6.  Take note of the bottom of the Chart.yaml file and the values.yaml.  
 Chart.yaml
+
+dependencies:
+- name: mysql
+  version: 1.6.9
+  repository: https://charts.helm.sh/stable
+
+values.yaml
+
 
 
